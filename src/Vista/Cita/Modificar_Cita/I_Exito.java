@@ -1,4 +1,5 @@
 package Vista.Cita.Modificar_Cita;
+import Vista.Cita.I_Cita;
 
 public class I_Exito extends javax.swing.JFrame {
 
