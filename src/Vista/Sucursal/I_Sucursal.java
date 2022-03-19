@@ -4,17 +4,28 @@
  */
 package Vista.Sucursal;
 
+import Vista.I_Vista_Principal;
+
 /**
  *
  * @author Maximiliano
  */
 public class I_Sucursal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form I_Sucursal
-     */
-    public I_Sucursal() {
+    private static I_Sucursal Instance;
+
+    private I_Sucursal() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
+    }
+    
+    public static I_Sucursal GetInstance()
+    {
+        if (Instance == null)
+            Instance = new I_Sucursal();
+        
+        return Instance;
     }
 
     /**
@@ -31,6 +42,7 @@ public class I_Sucursal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -80,6 +92,16 @@ public class I_Sucursal extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(51, 51, 51));
+        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Atrás");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -89,10 +111,15 @@ public class I_Sucursal extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(322, 322, 322))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(287, 287, 287)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(338, 338, 338)
+                        .addComponent(jButton3)))
                 .addContainerGap(292, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,7 +131,9 @@ public class I_Sucursal extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,12 +151,25 @@ public class I_Sucursal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Boton a I_Buscar_Sucursal
+        I_Buscar_Sucursal a = I_Buscar_Sucursal.GetInstance();
+        a.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Boton a I_Añadir_Sucursal
+        I_Añadir_Sucursal a = I_Añadir_Sucursal.GetInstance();
+        a.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // boton para atras a I_Vista_Principal
+        I_Vista_Principal a = I_Vista_Principal.GetInstance();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +209,7 @@ public class I_Sucursal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -2,13 +2,22 @@ package Vista.Historia_Medica;
 
 public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
 
-    /**
-     * Creates new form I_Actualizar_Historia_Medica
-     */
-    public I_Actualizar_Historia_Medica() {
+    private static I_Actualizar_Historia_Medica Instance;
+
+    private I_Actualizar_Historia_Medica() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
+    
+    public static I_Actualizar_Historia_Medica GetInstance()
+    {
+        if (Instance == null)
+            Instance = new I_Actualizar_Historia_Medica();
+        
+        return Instance;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,6 +49,7 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -125,6 +135,16 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(51, 51, 51));
+        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Atrás");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,11 +177,13 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel12)
                         .addGap(90, 90, 90)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(320, 320, 320))
+                .addGap(243, 243, 243))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +223,9 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -213,10 +237,17 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        I_Exito a = new I_Exito();
+        I_Exito a = I_Exito.GetInstance();
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // boton para atras a I_Actualizar_Hisoria_Medica_CI
+        I_Actualizar_Historia_Medica_CI a = I_Actualizar_Historia_Medica_CI.GetInstance();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,6 +287,7 @@ public class I_Actualizar_Historia_Medica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

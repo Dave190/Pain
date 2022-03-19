@@ -1,14 +1,25 @@
 package Vista.Cita.Modificar_Cita;
+import Vista.Cita.Agendar_Cita.I_Agendar_CIta;
 import Vista.Cita.I_Cita;
+import Vista.I_Vista_Principal;
 
 public class I_Exito extends javax.swing.JFrame {
+    
 
-    /**
-     * Creates new form I_Exito
-     */
-    public I_Exito() {
+    
+    private static I_Exito Instance;
+
+    private I_Exito() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    public static I_Exito GetInstance()
+    {
+        if (Instance == null)
+            Instance = new I_Exito();
+        
+        return Instance;
     }
 
     /**
@@ -77,7 +88,8 @@ public class I_Exito extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        I_Cita a = new I_Cita();
+
+        I_Vista_Principal a =I_Vista_Principal.GetInstance();
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

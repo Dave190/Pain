@@ -7,6 +7,7 @@ public class I_Error_Generico extends javax.swing.JFrame {
      */
     public I_Error_Generico() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -75,7 +76,7 @@ public class I_Error_Generico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        I_Historia_Medica a = new I_Historia_Medica();
+        I_Historia_Medica a = I_Historia_Medica.GetInstance();
         a.setVisible (true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
